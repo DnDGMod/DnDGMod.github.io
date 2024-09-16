@@ -1,1 +1,1 @@
-# [https://dndgmod.github.io]
+# https://dndgmod.github.io
