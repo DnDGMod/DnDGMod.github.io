@@ -12,8 +12,9 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "google",
-      tagId: "G-515P0YW8H3",     
+      provider: "umami",
+      host: "https://cloud.umami.is/script.js",
+      websiteId: "658c23de-27b5-4a99-933e-23809bd28b6e",
     },
     locale: "en-US",
     baseUrl: "dndgmod.github.io",
