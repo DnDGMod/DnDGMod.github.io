@@ -18,6 +18,42 @@ First and foremost, we want to set out the `mod.yaml` file correctly. This inclu
 
 ![[Pasted image 20240917003228.png]]
 # Cards
+
+Entries marked with an asterisk are optional
+
+Example Card:                   # name of the card
+  Description: "Explains cards" # use "" for a blank description
+                                # for "On Play:" surround it with {start_trigger}...{end_trigger}
+                                # for keywords use {keyword_...}
+                                # for newlines use \\n
+* Image: Example_img.png        # relative to the res folder
+                                # will use the built-in placeholder art if not specified
+* Foil: Example_foil_img.png    # defines the part of the card that will receive the foil overlay
+                                # consists of either transparent pixels or #ff00ff pixels
+                                # defaults to a standard card outline if not specified
+  Value: 7                      # pretty self-explanatory
+* Suit: hearts                  # spades, clubs, diamonds, hearts, special, or all_suits_at_once
+                                # defaults to special
+* Flexible: [3,7]               # defines the values the card can change between if flexible
+                                # you can only have two at a time
+* Triggers:                     # lists all the events that cause the card to do something
+    Play: Example_Play.gd.j2    # relative to the src folder
+    Stand: Example_Stand.gd.j2  # list of valid triggers is play, clicked, bust_limit_exceeded,
+                                # stand, start_of_turn, sleeve_played, another_card_drawn, 
+                                # card_instanced, hit, discarded
+* Attributes:                   # lists the categories the card falls into
+    - JACK                      # defaults to REWARD if not specified
+    - REWARD                    # list of default attributes is UNOBTAINABLE, REWARD, STANDARD,
+                                # NEGATIVE_STANDARD, TAROT, ACE, JACK, QUEEN, KING, FACE
+    - "\"CUSTOM ATTRIBUTE\""    # for a custom attribute surround it with "\"...\""
+* Keywords:                     # those little text boxes under the description
+    - burn                      # list of valid keywords are blackjack, burn, lock, rounds_up,
+                                # flexible, shred, handy, instant_blackjack, foresight, create,
+                                # shrouded, quick_damage, instant_draw, bust_limit, exploit, 
+                                # quick_discard, foil 
+    - card_190                  # references another card (uses card id)
+* Identifier: ExampleCard       # this can be used to refer to the card elsewhere within the mod
+
 Any unique cards you choose to make for your mod will need to be put inside the `cards.yaml` file. The first line in this file denotes the name of our card, as it appears in game. This is followed by a description, which generally includes information about what the card does. The `{start_trigger}` and `{end_trigger}` usually surround the part of the cards descriptions that says `On play:`. Any text contained within the start and end triggers will be colored blue, the image of this card in game will demonstrate. It’s also possible to display certain “keywords” in red, such as the word “exploit” in our cards descriptions.
 
 ![[Pasted image 20240917003256.png]]
